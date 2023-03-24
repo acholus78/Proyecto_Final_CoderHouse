@@ -1,0 +1,33 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<!-- colocamos lo que va a cambiar -->
+{% if productos %}
+    <p>Listados de productos marca: <b style="color:blue">{{nombre}}</b></p>
+        <hr>
+    <ul>
+        {% for producto in productos %}
+        <li>{{producto.nombre}}</li>
+        <li>{{producto.descripcion}}</li>
+        <li>{{producto.precio}}</li>
+        <hr>
+        {% endfor%}
+    </ul>
+
+{% endif %}
+
+<br>
+<form action="/AppCoder/buscar/" method="get">
+    <input type="text" name="nombre">
+    <input type="submit" value="Buscar por Marca de Producto">
+</form>
+
+{% endblock %}
+
+
+<p style="color:red">{{respuesta}}</p>

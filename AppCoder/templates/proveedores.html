@@ -1,0 +1,27 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!-- colocamos lo que va a cambiar -->
+<h1>Proveedores</h1>
+
+{% if miFormulario.errors %}
+<p style="color:red;">Están mal los datos, revisar.</p>
+{% endif %}
+
+<form action="" method="POST"> {% csrf_token %}
+
+    <table>
+        {{ miFormulario.as_table }}
+    </table>
+
+    <input type="submit", value="Enviar">
+    <input type="button" onclick="history.back()" name="Cancelar" value="Cancelar">
+
+</form>
+
+
+{% endblock %}

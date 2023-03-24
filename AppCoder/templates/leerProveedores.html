@@ -1,0 +1,36 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<!--
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+</head>
+<body>
+-->
+
+    <h3>Listado de proveedores: </h3>
+    {% for p in proveedores %}
+    <li>{{p}} <button><a href="{% url 'EditarProveedor' p.nombre %}">Editar</a></button>&nbsp;&nbsp; <button><a href="{% url 'EliminarProveedor' p.nombre %}">Eliminar</a></button></li>
+    
+    {% endfor %}
+    <!--<a href="productos">Agregar otro producto</a>-->
+    <br>
+    <a href="altaproveedor">Agregar otro proveedor</a>
+
+
+    {% endblock %}
+
+
+    <!--
+</body>
+</html>
+-->

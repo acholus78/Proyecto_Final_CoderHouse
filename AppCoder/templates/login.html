@@ -1,0 +1,50 @@
+
+{% extends 'padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AppCoder</title>
+</head>
+<body>
+-->   
+
+<header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h3 align="center">Ingrese sus datos de acceso para poder ingresar</h3>
+                    <br>
+                    <form align="center" action="" method="POST" class="text-center text-black">
+                        {% csrf_token %}
+                            {{ form.as_p }}
+                         <button style="color:blue" lign="center" type="submit">Inciar sesion</button>
+                    </form>
+                </div>
+            </div>
+            <p></p>
+            <p></p>
+            <hr>
+            <p align="center" style="color:white">¿Aun no tiene usuario? <a style="color:yellow" href="{% url 'Registro' %}">Regístrate</a></p>
+        </div>
+    </div>
+</header>
+
+
+    {% endblock %}
+
+    <!--
+</body>
+</html>
+-->
