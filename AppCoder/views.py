@@ -385,6 +385,7 @@ def editarPerfil(request):
 
 @login_required
 def agregarAvatar(request):
+      avatares = Avatar.objects.filter(user=request.user.id)
       if request.method == 'POST':
             miFormulario = AvatarFormulario(request.POST, request.FILES) #aquí mellega toda la información del html
             if miFormulario.is_valid:   #Si pasó la validación de Django
@@ -394,7 +395,7 @@ def agregarAvatar(request):
                   return render(request, "inicio.html") #Vuelvo al inicio o a donde quieran
       else: 
             miFormulario= AvatarFormulario() #Formulario vacio para construir el html
-      return render(request, "agregarAvatar.html", {"miFormulario":miFormulario})
+      return render(request, "agregarAvatar.html", {"miFormulario":miFormulario, "url":avatares[0].imagen.url})
 
 def urlImagen():
       return "/media/avatares/logo.png"
