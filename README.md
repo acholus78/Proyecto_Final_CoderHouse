@@ -35,3 +35,8 @@ Back-End
 - Python 3.10.4
 - Django 4.0
 
+
+################################
+
+Video presentación proyecto:
+https://youtu.be/MublVeY1X68

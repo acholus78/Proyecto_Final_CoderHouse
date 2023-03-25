@@ -43,7 +43,8 @@ def login_request(request):
             if user is not None:
                 login (request, user)
                 avatares = Avatar.objects.filter(user=request.user.id)
-                return render (request, "inicio.html", {'url':  avatares[0].imagen.url})
+                contexto = {"url":avatares[0].imagen.url}
+                return render (request, "inicio.html", contexto)
             else:
                 return render (request, 'inicio.html', {"mensaje":"Error, datos incorrectos."})
         else:
@@ -88,7 +89,10 @@ def productos (request):
             informacion = miFormulario.cleaned_data
             producto=Producto(nombre=informacion['nombre'],anio_fabricacion=informacion['anio_fabricacion'],descripcion=informacion['descripcion'],precio=informacion['precio'])
             producto.save()
-            return render(request, 'inicio.html')
+            avatares = Avatar.objects.filter(user=request.user.id)
+            productos = Producto.objects.all()
+            contexto = {"productos":productos, "url":avatares[0].imagen.url}
+            return render(request, 'leerProductos.html', contexto)
     else:
         miFormulario = ProductoFormulario()
 
